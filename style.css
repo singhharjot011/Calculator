@@ -1,0 +1,217 @@
+
+:root {
+    --yellow-color: #fcee09; 
+    --red-color: #ff003c;
+    --black-color: #050a0e;
+    --blue-color: #00f0ff;
+  }
+
+body{
+    padding: 10%;
+    
+}
+
+*{
+    font-family: 'Cyberpunk Is Not Dead', sans-serif;
+    font-size: 24px;
+}
+
+
+
+.calculator-box {
+    position: relative; /* Add this for positioning the pseudo-element */
+    height: 700px;
+    width: 500px;
+    border-radius: 10px;
+    padding: 4%;
+    box-shadow: 0px 4px 5px #111111;
+    overflow: hidden;
+
+}
+
+.calculator-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("cyberpunk-main.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* animation: glitch 10000ms 3s ease-in infinite; */
+    z-index: -1;
+}
+
+@keyframes glitch {
+
+    0%{
+        opacity: 0.8;
+        box-shadow: 0px 4px 5px #911616;
+        transform: translate3d(-0.05rem,0,0.1rem);
+
+    }
+
+    10%{
+        opacity: 1;
+        box-shadow: 0px -4px 5px hsl(184, 100%, 50%);
+        transform: translate3d(0.05rem,0,-0.1rem);
+
+    }
+
+    15%{
+        opacity:0.9;
+        transform: translate3d(-0.05rem,0,0.1rem);
+    }
+
+    20%{
+        opacity: 1;
+        transform: translate3d(0.05rem,0,-0.1rem);
+    }
+
+    40%{
+        opacity: 1;
+
+    }
+    60%{
+        opacity: 1;
+
+    }
+    80%{
+        opacity: 1;
+    }
+
+    100%{
+        opacity: 1;
+        
+    }
+    
+}
+
+.input-area{
+    background-color: rgba(255, 255, 255, 0.92);
+    height: 200px; /* Set a fixed height */
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 'first-operand'
+    'operator'
+    'second-operand';
+    place-items: center;
+    overflow: auto;
+    box-shadow: 0px 2px 5px #111111;
+}
+
+.first-operand{
+    grid-area: first-operand;
+    justify-self: right;
+    align-self: end;
+    font-size: 40px;
+}
+
+.operator{
+    grid-area: operator;
+    justify-self: right;
+    font-size: 50px;
+}
+
+.second-operand{
+    grid-area: second-operand;
+    justify-self: right;
+    align-self: start;
+    font-size: 40px;
+}
+
+.btn {
+    width: 120px;
+    height: 80px; 
+    border: 0;
+    margin-bottom: 10px;
+    background-color: var(--black-color);
+    cursor: pointer;
+    position: relative;
+    color: var(--black-color);
+    clip-path: polygon(92% 0, 100% 25%, 100% 100%, 8% 100%, 0% 75%, 0 0);
+  }
+
+
+.btn:hover .btn-content{
+        /* opacity: 0.8; */
+        box-shadow: 0 0 10px #fcee09,
+        0 0 30px #fcee09,
+        0 0 60px #fcee09,
+        0 0 100px #fcee09;
+
+}
+
+.btn:hover span{
+    opacity: 0.8;
+}
+
+.btn-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    background-color: var(--yellow-color);
+    clip-path: polygon(92% 0, 100% 25%, 100% 100%, 8% 100%, 0% 75%, 0 0);
+  }
+
+.keys{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-areas: 'numsTop op-side';
+    grid-gap: 10px;
+    margin-top: 40px;
+}
+
+.numsTop{
+    display: grid;
+    grid-template-areas: 'op-top'
+                        'nums';
+    grid-area: numsTop;
+}
+
+
+.numbers {
+    grid-area: nums;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#zero{
+    width: 195%;
+}
+
+#dot{
+    margin-left: 100%;
+}
+
+#operators-side span{
+    background-color: #ff003c;
+    font-size: 1.5rem;
+}
+
+#operators-side{
+    grid-area: op-side;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+#operators-top span{
+    background-color: #00f0ff;
+
+
+}
+#operators-top{
+    grid-area: op-top;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+  
