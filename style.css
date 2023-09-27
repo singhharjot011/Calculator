@@ -40,54 +40,9 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    /* animation: glitch 10000ms 3s ease-in infinite; */
     z-index: -1;
 }
 
-@keyframes glitch {
-
-    0%{
-        opacity: 0.8;
-        box-shadow: 0px 4px 5px #911616;
-        transform: translate3d(-0.05rem,0,0.1rem);
-
-    }
-
-    10%{
-        opacity: 1;
-        box-shadow: 0px -4px 5px hsl(184, 100%, 50%);
-        transform: translate3d(0.05rem,0,-0.1rem);
-
-    }
-
-    15%{
-        opacity:0.9;
-        transform: translate3d(-0.05rem,0,0.1rem);
-    }
-
-    20%{
-        opacity: 1;
-        transform: translate3d(0.05rem,0,-0.1rem);
-    }
-
-    40%{
-        opacity: 1;
-
-    }
-    60%{
-        opacity: 1;
-
-    }
-    80%{
-        opacity: 1;
-    }
-
-    100%{
-        opacity: 1;
-        
-    }
-    
-}
 
 .input-area{
     background-color: rgba(255, 255, 255, 0.92);
@@ -182,10 +137,11 @@ body{
     grid-area: nums;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    
 }
 
-#zero{
-    width: 195%;
+#btn0{
+    width: 194%;
 }
 
 #dot{
@@ -212,6 +168,7 @@ body{
     grid-area: op-top;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    height: 98px;
 }
 
   
