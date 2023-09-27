@@ -38,7 +38,7 @@ numsDiv.appendChild(dot);
 
 //Taking Input from Keyboard
 addEventListener("keydown", (event) => {
-  if (/[\d.%+*/-]/.test(event.key)) {
+  if (/[\d.+*/-]/.test(event.key)) {
     input(event.key);
   } else if (
     event.key === "Enter" &&
@@ -47,6 +47,8 @@ addEventListener("keydown", (event) => {
     operand2.textContent
   ) {
     equalTo();
+  } else if (event.key === "%") {
+    percent();
   }
 });
 
@@ -61,7 +63,7 @@ function input(inputChar) {
     } else if (inputChar !== ".") {
       operand1.textContent += inputChar;
     }
-  } else if (/[+*/%-]/.test(inputChar)) {
+  } else if (/[+*/-]/.test(inputChar)) {
     //if statement below allows to start new calculation on result
     if (!operand2.textContent) {
       op.textContent = inputChar;
@@ -106,7 +108,7 @@ function percent() {
   if (!op.textContent && operand1.textContent) {
     let result = parseFloat(operand1.textContent) / 100;
     operand1.textContent = result;
-  } else if (operand2.textContent){
+  } else if (operand2.textContent) {
     let result = parseFloat(operand2.textContent) / 100;
     operand2.textContent = result;
   }
@@ -116,9 +118,8 @@ function percent() {
 function equalTo() {
   if (operand1.textContent && op.textContent && operand2.textContent) {
     let result = eval(
-
       // Added space before and after operator to avoid -1--1 like situations
-      operand1.textContent + " " + op.textContent + " "+ operand2.textContent
+      operand1.textContent + " " + op.textContent + " " + operand2.textContent
     );
 
     clearInput();
